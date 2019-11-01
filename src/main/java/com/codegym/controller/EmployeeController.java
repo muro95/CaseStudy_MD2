@@ -12,6 +12,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.validation.BindingResult;
@@ -43,7 +44,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/employees")
-    public ModelAndView listEmployee(@RequestParam("s") Optional<String> s, Pageable pageable) {
+    public ModelAndView listEmployee(@RequestParam("s") Optional<String> s,@PageableDefault(value = 3) Pageable pageable) {
         Page<Employee> employeeList;
 
         if(s.isPresent()){

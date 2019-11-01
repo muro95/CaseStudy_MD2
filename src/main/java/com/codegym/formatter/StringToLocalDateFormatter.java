@@ -15,6 +15,8 @@ public class StringToLocalDateFormatter implements Formatter<LocalDate> {
 
     @Override
     public String print(LocalDate object, Locale locale) {
-        return object.toString();
+        //LocalDate.parse(date, DateTimeFormatter.ofPattern("MM-dd-yyyy"));
+        String t = object.format(DateTimeFormatter.ofPattern("MM-dd-yyyy"));
+        return t;
     }
 }
